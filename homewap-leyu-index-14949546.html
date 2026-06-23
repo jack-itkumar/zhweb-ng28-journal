@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 资料整理与信息索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f2f4f6;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 卡片通用设计 */
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e6ea;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      padding: 1.8rem 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    /* 网格布局 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2.8rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0b1a2b;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #4a5b6c;
+      max-width: 640px;
+      margin: 0.6rem auto 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dfe5ec;
+      color: #1e2a3a;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid #e3e8ed;
+      padding-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title span {
+      background: #dce3ec;
+      width: 6px;
+      height: 24px;
+      border-radius: 3px;
+    }
+
+    /* 列表与内容 */
+    .info-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .info-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px dashed #e8ecf0;
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #edf2f7;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #2c3e50;
+      margin-right: 0.4rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      color: #0f293f;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: #2d3f53;
+    }
+
+    .tip-box {
+      background: #f8faff;
+      border-left: 4px solid #7b8fa3;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      margin: 1.5rem 0 0.8rem;
+      font-size: 0.96rem;
+    }
+
+    .link-sentence {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1rem 1.5rem;
+      border: 1px solid #dde3ea;
+      display: inline-block;
+      margin-top: 0.3rem;
+    }
+
+    a {
+      color: #1e4d7a;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #b6c9db;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #0f2f4f;
+      border-bottom-color: #0f2f4f;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.85rem;
+      color: #607080;
+      text-align: center;
+      border-top: 1px solid #dbe1e8;
+      padding-top: 2rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .card {
+        padding: 1.4rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">📋 资料索引 · 信息整理</div>
+    <h1>乐鱼 · 知识库入口</h1>
+    <p class="sub">从资料整理与信息索引的角度，汇集关于乐鱼的主题分类、常见疑问、使用提示与相关参考。</p>
+  </div>
+
+  <!-- 目录感布局：说明区 + 信息卡片 -->
+  <div class="grid-2" style="margin-bottom: 2rem;">
+    <!-- 说明区 -->
+    <div class="card">
+      <div class="section-title"><span></span> 说明区 · 关于本索引</div>
+      <p style="margin-bottom: 1rem;">本页面将分散在多个来源中与<strong>乐鱼</strong>相关的内容进行结构化整理，形成便于检索和理解的资料入口。适用于初步了解、日常查阅以及需要快速定位信息的场景。</p>
+      <p>所有条目均基于公开可用资料整理，不包含任何非公开或引导性内容。如您需要直接访问相关服务，可在下方句子中找到对应链接：</p>
+      <div class="link-sentence">
+        📌 在资料整理过程中，我们始终将 <a href="https://homewap-leyu.com">乐鱼</a> 作为一个关键信息节点进行标注。
+      </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="card">
+      <div class="section-title"><span></span> 提示区 · 使用建议</div>
+      <ul class="info-list">
+        <li><span class="tag">检索</span> 建议优先使用关键词组合进行查找，例如“乐鱼 + 资料类型”</li>
+        <li><span class="tag">来源</span> 涉及第三方信息时，注意核对原始出处与更新日期</li>
+        <li><span class="tag">归档</span> 本索引每季度做一次内容复核，失效链接会及时标记</li>
+        <li><span class="tag">补充</span> 如果发现遗漏或错误，欢迎通过页面底部渠道反馈</li>
+      </ul>
+      <div class="tip-box">
+        💡 提示：将本页面加入浏览器书签，可作为后续查阅乐鱼相关资料的固定入口点。
+      </div>
+    </div>
+  </div>
+
+  <!-- 相关信息区：三列卡片 -->
+  <div class="grid-3" style="margin-bottom: 2.2rem;">
+    <!-- 卡片：特点归纳 -->
+    <div class="card">
+      <div class="section-title" style="font-size:1.15rem;"><span></span> 特点归纳</div>
+      <ul class="info-list" style="font-size:0.95rem;">
+        <li>📁 内容以资料卡片形式组织，降低阅读负担</li>
+        <li>🔗 每个信息单元独立可引用，便于交叉对比</li>
+        <li>📌 采用层次化标签与分类，提升检索效率</li>
+        <li>🔄 定期增量更新，保持信息新鲜度</li>
+      </ul>
+    </div>
+
+    <!-- 卡片：常见场景 -->
+    <div class="card">
+      <div class="section-title" style="font-size:1.15rem;"><span></span> 常见场景</div>
+      <ul class="info-list" style="font-size:0.95rem;">
+        <li>📖 初次接触时快速了解乐鱼背景</li>
+        <li>🔍 需要核对特定资料或引用来源</li>
+        <li>🧩 整合分散信息，形成个人知识笔记</li>
+        <li>📋 作为内部团队信息同步的参考基线</li>
+      </ul>
+    </div>
+
+    <!-- 卡片：结构示意 -->
+    <div class="card">
+      <div class="section-title" style="font-size:1.15rem;"><span></span> 结构示意</div>
+      <ul class="info-list" style="font-size:0.95rem;">
+        <li><strong>说明区</strong> — 索引目的与使用方式</li>
+        <li><strong>提示区</strong> — 检索技巧与维护说明</li>
+        <li><strong>FAQ 摘要</strong> — 常见疑问快速参考</li>
+        <li><strong>相关信息</strong> — 分类标签与扩展阅读</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 + 附加说明 -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="section-title"><span></span> FAQ 摘要</div>
+      <div class="faq-item">
+        <strong>Q：乐鱼是什么类型的项目？</strong>
+        <p>A：根据现有资料，乐鱼是一个信息服务平台，本索引仅做资料汇总，不涉及具体业务定义。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q：如何确认资料的准确性？</strong>
+        <p>A：建议结合多个独立来源交叉验证。本页面标注的链接与说明均取自公开渠道。</p>
+      </div>
+      <div class="faq-item">
+        <strong>Q：索引多久更新一次？</strong>
+        <p>A：通常每季度进行一次全面复审，重要变更会及时修正。</p>
+      </div>
+      <div style="margin-top:1rem; font-size:0.9rem; color:#3c536b;">
+        🔎 更多 FAQ 内容正在整理中，可留意后续版本。
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><span></span> 相关信息区</div>
+      <p style="margin-bottom:0.6rem;">以下标签可用于进一步筛选与乐鱼有关的资料主题：</p>
+      <div style="display:flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; margin-bottom: 1.2rem;">
+        <span class="tag">#资料整理</span>
+        <span class="tag">#信息索引</span>
+        <span class="tag">#知识库</span>
+        <span class="tag">#服务介绍</span>
+        <span class="tag">#用户指南</span>
+        <span class="tag">#常见问题</span>
+        <span class="tag">#更新日志</span>
+      </div>
+      <p style="font-size:0.95rem; color:#2d3f53;">
+        在信息整理实践中，我们始终把 <a href="https://homewap-leyu.com">乐鱼</a> 作为一个稳定的参考节点。本页面旨在提供清晰、可复用的资料框架。
+      </p>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    <div class="footer-links">
+      <span>资料索引 v1.2</span>
+      <span>更新日期：2025-04</span>
+      <span>反馈建议：整理小组</span>
+    </div>
+    <p style="margin-top:0.3rem;">本页面仅用于信息整理与展示，所有内容均为公开资料汇编。</p>
+  </footer>
+</div>
+</body>
+</html>
