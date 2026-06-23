@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>信息索引 | 乐鱼 · 资料整理日志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f6f7;
+            color: #1f2a2e;
+            line-height: 1.6;
+            padding: 0 1rem 3rem;
+        }
+
+        .page {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 杂志式首页横幅 */
+        .hero {
+            background: linear-gradient(145deg, #0f4b4a 0%, #1b6f6d 100%);
+            color: #e3f1f0;
+            padding: 3rem 2rem 2.5rem;
+            border-radius: 40px 40px 60px 60px;
+            margin: 1.5rem 0 2.5rem;
+            box-shadow: 0 10px 20px rgba(0, 40, 40, 0.08);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-weight: 400;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.4rem;
+            word-break: keep-all;
+        }
+
+        .hero .sub {
+            font-weight: 300;
+            font-size: 1rem;
+            opacity: 0.85;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        .hero .tagline {
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            display: inline-block;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* 背景说明卡片 */
+        .section-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 1.6rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 30, 30, 0.02);
+            border: 1px solid #e2efee;
+        }
+
+        .section-card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0b4d4c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #359f9b;
+            padding-left: 0.8rem;
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 1.8rem;
+        }
+
+        .grid-item {
+            background: #f6fbfa;
+            border-radius: 20px;
+            padding: 1.3rem 1rem;
+            border: 1px solid #d6eae8;
+            transition: all 0.2s ease;
+        }
+
+        .grid-item:hover {
+            background: #edf8f6;
+            border-color: #2f8f8b;
+            box-shadow: 0 4px 10px rgba(25, 110, 105, 0.06);
+        }
+
+        .grid-item strong {
+            display: block;
+            font-weight: 500;
+            color: #0b5b58;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .grid-item p {
+            font-size: 0.9rem;
+            color: #2d4548;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini {
+            background: #f7fcfb;
+            border-radius: 24px;
+            padding: 1.5rem 1.6rem;
+            margin: 1.8rem 0;
+            border-left: 6px solid #318784;
+        }
+
+        .faq-mini h3 {
+            font-weight: 500;
+            color: #074542;
+            margin-bottom: 0.6rem;
+            font-size: 1.1rem;
+        }
+
+        .faq-mini .qa {
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini .q {
+            font-weight: 500;
+            color: #1f5e5a;
+        }
+
+        .faq-mini .a {
+            color: #2d494a;
+            padding-left: 1rem;
+            border-left: 2px solid #b7d7d4;
+            margin-top: 0.1rem;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            text-align: center;
+            padding: 2.5rem 0 0.8rem;
+            border-top: 1px solid #cde0de;
+            margin-top: 2rem;
+        }
+
+        .footnote p {
+            font-size: 0.9rem;
+            color: #3d5c5b;
+            background: #edf6f5;
+            display: inline-block;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            letter-spacing: 0.5px;
+        }
+
+        .footnote .sentence-link {
+            background: white;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin-top: 0.6rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+            border: 1px solid #bcd6d3;
+            font-size: 0.95rem;
+        }
+
+        a {
+            color: #1c726e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #71b3af;
+            padding-bottom: 1px;
+            transition: border 0.15s;
+        }
+
+        a:hover {
+            border-bottom: 2px solid #0b524e;
+            color: #05403d;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 2rem 1.2rem 1.8rem;
+                border-radius: 30px;
+                margin-top: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .grid-cards {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .section-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .faq-mini {
+                padding: 1.2rem 1rem;
+            }
+
+            .footnote .sentence-link {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero .tagline {
+                font-size: 0.85rem;
+                padding: 0.3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- 杂志横幅 -->
+        <div class="hero">
+            <h1>索引 · 乐鱼</h1>
+            <div class="sub">资料整理 / 信息归档</div>
+            <div class="tagline">从碎片到脉络 · 一份安静的记录</div>
+        </div>
+
+        <!-- 背景说明 + 三段自然介绍 -->
+        <div class="section-card">
+            <h2>📋 由来 · 整理视角</h2>
+            <p class="intro-text">
+                几年前开始留意一些线上服务与工具的动态，习惯把零散的信息按主题归档。关于<a href="https://homemobile-leyu.com">乐鱼</a>的条目，最初只是几条简单的备忘——名称、入口、用途。后来检索的人渐渐多了，才意识到这些笔记可以稍微整理得清晰一些，方便需要的人快速定位。
+            </p>
+            <p class="intro-text" style="margin-top: 0.8rem;">
+                这本就不是什么官方说明，更像一个由使用者自发维护的微型索引卡。没有溢美之词，只有筛选后的基本事实与使用场景。如果你只是想知道“这到底是什么、用来做什么”，下面几段应该足够。
+            </p>
+        </div>
+
+        <!-- 三段自然介绍 (用网格卡片呈现) -->
+        <div class="section-card">
+            <h2>📌 三段笔记</h2>
+            <div class="grid-cards">
+                <div class="grid-item">
+                    <strong>① 定位与属性</strong>
+                    <p>属于移动端功能聚合类入口，提供若干日常使用的轻量工具与信息查询。界面设计偏简洁，操作路径较短，适合快速触达。不需要下载额外客户端，通过浏览器即可访问。</p>
+                </div>
+                <div class="grid-item">
+                    <strong>② 常见应用场景</strong>
+                    <p>搜索资料时顺手点开，查看某个实用功能是否更新；或者当作一个备用信息库，在常用平台之外留一条通道。不少人把它放在手机主屏的书签文件夹里，当作一个安静的“工具抽屉”。</p>
+                </div>
+                <div class="grid-item">
+                    <strong>③ 维护与更新节奏</strong>
+                    <p>根据公开记录，功能模块大约每季度会有小幅度调整，主要是修复反馈较多的显示问题或增加几个实用链接。没有大版本概念，更像是持续润色。变化日志在站内通知区域可以找到。</p>
+                </div>
+                <div class="grid-item">
+                    <strong>④ 用户习惯小记</strong>
+                    <p>从整理留言板摘要来看，多数人把它当作信息检索的补充节点——不依赖、但需要时很方便。也有人提到页面加载速度稳定，在信号一般的环境下表现不错。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 (杂志式) -->
+        <div class="faq-mini">
+            <h3>❓ 常见疑问摘要</h3>
+            <div class="qa">
+                <div class="q">这个页面和官方是什么关系？</div>
+                <div class="a">完全是用户视角的整理笔记，非官方运营。所有信息均来自公开可查的内容，无内部数据。</div>
+            </div>
+            <div class="qa">
+                <div class="q">索引会不会过时？</div>
+                <div class="a">尽量每两个月复核一次，如果发现链接或功能变化会更新。也欢迎通过站内反馈通道提醒我。</div>
+            </div>
+            <div class="qa">
+                <div class="q">为什么叫“乐鱼”？</div>
+                <div class="a">最初命名取自轻快、灵动的意象，和产品本身轻量、直接的风格一致。没有更复杂的含义。</div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 —— 自然嵌入链接 -->
+        <div class="footnote">
+            <p>📎 资料归档 · 不定期修订</p>
+            <div class="sentence-link">
+                如果你需要直接访问，这里有一份指向 <a href="https://homemobile-leyu.com">乐鱼</a> 的链接，和收藏夹里的那个一样。
+            </div>
+            <p style="margin-top: 1.2rem; font-size: 0.8rem; color: #607d7b; background: transparent; padding: 0;">
+                索引页本身无监控、无广告，仅供信息参考。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
